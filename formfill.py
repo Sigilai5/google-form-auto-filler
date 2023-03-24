@@ -4,7 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from variables import random_gender, random_before, random_method, random_importance,random_likely,challenge_list,benefits_list
+from variables import random_affected,random_often,challenge_list,benefists_list
+# from variables import random_gender, random_before, random_method, random_importance,random_likely,challenge_list,benefits_list
 
 # Brian Sigilai
 for i in range(0,2):
@@ -15,7 +16,7 @@ for i in range(0,2):
 
     driver.get(url)
 
-    def fill_form(gender,before,method,importance,likely):
+    def fill_form(affected,often,importance,likely):
     
         radiobuttons = driver.find_elements_by_class_name("Od2TWd")
         checkboxes = driver.find_elements_by_class_name("uVccjd")
@@ -24,14 +25,11 @@ for i in range(0,2):
             
 
         for radio in radiobuttons:
-            if radio.get_attribute("data-value").lower() == gender:
+            if radio.get_attribute("data-value").lower() == affected:
                 radio.click()
             
-            if radio.get_attribute("data-value").lower() == before:
-                radio.click()
-
-            if radio.get_attribute("data-value").lower() == method:
-                radio.click()
+            if radio.get_attribute("data-value").lower() == often:
+                radio.click() 
 
             if radio.get_attribute("data-value").lower() == importance:
                 radio.click()
@@ -40,8 +38,8 @@ for i in range(0,2):
                 radio.click()
 
         
-        check = random.sample(challenge_list,k=4) # Select 4 random challenges
-        for i in range(0,4):
+        check = random.sample(detection_list,k=1) # Select 4 random detection method
+        for i in range(0,1):
             for checkbox in checkboxes:
                 if checkbox.get_attribute("data-answer-value").lower() == check[i]:
                     checkbox.click()
@@ -52,6 +50,12 @@ for i in range(0,2):
         for i in range(0,4):
             for checkbox in checkboxes:
                 if checkbox.get_attribute("data-answer-value").lower() == benefits[i]:
+                    checkbox.click()
+
+        challenges = random.sample(challenges_list,k=4) # Select 4 random challenges
+        for i in range(0,4):
+            for checkbox in checkboxes:
+                if checkbox.get_attribute("data-answer-value").lower() == challenges[i]:
                     checkbox.click()
 
 
@@ -68,4 +72,4 @@ for i in range(0,2):
         
 
 
-    fill_form(random_gender,random_before,random_method,random_importance,random_likely)
+    fill_form(random_affected,random_often,random_importance,random_likely)
