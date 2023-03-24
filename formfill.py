@@ -11,7 +11,7 @@ for i in range(0,2):
 
     driver = webdriver.Chrome('/usr/local/bin/chromedriver')  # Optional argument, if not specified will search path.
 
-    url = 'https://forms.gle/jJF1sVWBjK25ouZ46'
+    url = 'https://forms.gle/QyKr2hfQDkYT22aX7'
 
     driver.get(url)
 
