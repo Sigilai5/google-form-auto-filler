@@ -4,19 +4,19 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from variables import random_affected,random_often,challenge_list,benefists_list
+from variables import random_affected,random_often,challenges_list,detection_list,benefits_list,random_likely
 # from variables import random_gender, random_before, random_method, random_importance,random_likely,challenge_list,benefits_list
 
 # Brian Sigilai
-for i in range(0,2):
+for i in range(0,73): # 73 is the number of times you want to fill the form
 
     driver = webdriver.Chrome('/usr/local/bin/chromedriver')  # Optional argument, if not specified will search path.
 
-    url = 'https://forms.gle/jJF1sVWBjK25ouZ46'
+    url = 'https://forms.gle/s2Qz3Q6H3pitARBj9'
 
     driver.get(url)
 
-    def fill_form(affected,often,importance,likely):
+    def fill_form(affected,often,likely):
     
         radiobuttons = driver.find_elements_by_class_name("Od2TWd")
         checkboxes = driver.find_elements_by_class_name("uVccjd")
@@ -31,8 +31,6 @@ for i in range(0,2):
             if radio.get_attribute("data-value").lower() == often:
                 radio.click() 
 
-            if radio.get_attribute("data-value").lower() == importance:
-                radio.click()
             
             if radio.get_attribute("data-value").lower() == likely:
                 radio.click()
@@ -72,4 +70,4 @@ for i in range(0,2):
         
 
 
-    fill_form(random_affected,random_often,random_importance,random_likely)
+    fill_form(random_affected,random_often,random_likely)
