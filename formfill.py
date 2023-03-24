@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from variables import random_gender, random_before, random_method, random_importance,random_likely,challenge_list,benefits_list
 
-# Malith lujok kulia
+# Brian Sigilai
 for i in range(0,2):
 
     driver = webdriver.Chrome('/usr/local/bin/chromedriver')  # Optional argument, if not specified will search path.
